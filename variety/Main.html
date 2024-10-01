@@ -7,160 +7,219 @@
     <style>
         .Main {
             position: relative;
-            /* border: 4px solid red; */
             width: 100%;
-            height: 500px;
+            height: 1080px;
             text-align: center;
-            box-sizing: border-box; /* Ensures borders are included in the width/height */
-          overflow: hidden;   /* Prevents overflow */
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
         .variety {
-            /* border: 3px solid blue; */
-            padding: 10px;
-            font-size: 40px;
             font-family: monospace;
             font-weight: 900;
-            background-color: rgba(255, 232, 204, 0.757);
-            padding: 15px;
+            background-color: rgba(204, 255, 253, 0.757);
         }
 
         .items {
             display: table;
             width: 100%;
-            height: calc(100% - 72px); /* Adjusted height to leave space for .variety */
-            /* border: 3px solid rgb(255, 0, 234); */
-            box-sizing: border-box; /* Prevents overflow due to borders */
+            height: calc(100%);
+            box-sizing: border-box;
+            border-spacing: 50px;
         }
 
         .grocery, .food {
             display: table-cell;
-            width: 50%;
+            width: 40%;
             height: 100%;
-            /* border: 3px solid orange; */
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 30px;
             text-align: center;
             font-size: 30px;
             font-family: fantasy;
-            background-color: rgba(105, 105, 105, 0.54);
+            background-color: rgba(6, 70, 24, 0.618);
             padding: 15px;
-        }
-        .groceryitems{
-            width: 100%;
-            height: calc(100% - 35px);
-        }
-        .groceryitems table{
-            width: 100%;
-            height: 100%;
+            vertical-align: middle;
         }
 
-        .groceryitems button{
+        .groceryitems {
+            width: 100%;
+            height: calc(100% - 35px);
+            margin: 0 auto;
+        }
+
+        .groceryitems table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+        }
+
+        .groceryitems td {
+            text-align: center;
+        }
+
+        .groceryitems img {
+            width: 190px;
+            height: 190px;
+            object-fit: contain;
+            border-radius: 20px;
+        }
+
+        .label {
+            font-family: cursive;
+            font-weight: 700;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .groceryitems button {
             font-family: cursive;
             font-weight: 600;
             font-size: large;
-            width: 250px;
-            height: 100%;
+            width: 100px;
+            height: 50px;
             border-radius: 10px;
             background-color: rgb(156, 234, 156);
-        }
-
-        .groceryitems button:hover{
-            width: 270px;
-            height: 120%;
+            margin-top: 10px;
+            display: none; /* Hide buttons but still functional */
         }
     </style>
 </head>
 <body>
     <div class="Main">
-        <div class="variety">
-            <span>variety</span>
-        </div>
+        <div class="variety"></div>
         <div class="items">
             <div class="grocery">
-                grocery
-
+                <label style="background-color: rgba(240, 248, 255, 0.811); border-radius: 10px;">Grocery</label>
                 <div class="groceryitems">
-                     <table cellspacing="10px" >
-                        <tr>
-                            <td colspan="2"></td>
-                        </tr>
+                    <table cellspacing="10px">
                         <tr>
                             <td>
-                                <button >Vagetables</button>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Vegetables" onclick="clickButton(this)">
+                                <div class="label">Vegetables</div>
+                                <button onclick="alert('Vegetables button clicked')">Click</button>
                             </td>
                             <td>
-                                <button>Fruits</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button>Cold-Drinks</button>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Fruits" onclick="clickButton(this)">
+                                <div class="label">Fruits</div>
+                                <button onclick="alert('Fruits button clicked')">Click</button>
                             </td>
                             <td>
-                                <button>Dairy and Backery</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button>Stationery</button>
-                            </td>
-                            <td>
-                                <button>Cooking Essentials</button>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Cold-Drinks" onclick="clickButton(this)">
+                                <div class="label">Cold-Drinks</div>
+                                <button onclick="alert('Cold-Drinks button clicked')">Click</button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button>Gifts</button>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Dairy and Bakery" onclick="clickButton(this)">
+                                <div class="label">Dairy and Bakery</div>
+                                <button onclick="alert('Dairy and Bakery button clicked')">Click</button>
                             </td>
                             <td>
-                                <button>Biscuits</button>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Stationery" onclick="clickButton(this)">
+                                <div class="label">Stationery</div>
+                                <button onclick="alert('Stationery button clicked')">Click</button>
                             </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Cooking Essentials" onclick="clickButton(this)">
+                                <div class="label">Cooking Essentials</div>
+                                <button onclick="alert('Cooking Essentials button clicked')">Click</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Gifts" onclick="clickButton(this)">
+                                <div class="label">Gifts</div>
+                                <button onclick="alert('Gifts button clicked')">Click</button>
+                            </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Biscuits" onclick="clickButton(this)">
+                                <div class="label">Biscuits</div>
+                                <button onclick="alert('Biscuits button clicked')">Click</button>
+                            </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Snacks" onclick="clickButton(this)">
+                                <div class="label">Snacks</div>
+                                <button onclick="alert('Snacks button clicked')">Click</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><button onclick="alert('See All Grocery button clicked')">See All</button></td>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="food">
-                food
+                <label style="background-color: rgba(240, 248, 255, 0.811); border-radius: 10px;">Food</label>
                 <div class="groceryitems">
-                    <table cellspacing="10px" ">
-                                <tr>
-                                    <td colspan="2"></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <button>Vagetables</button>
-                                    </td>
-                                    <td>
-                                        <button>Fruits</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <button>Cold-Drinks</button>
-                                    </td>
-                                    <td>
-                                        <button>Dairy and Backery</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <button>Stationery</button>
-                                    </td>
-                                    <td>
-                                        <button>Cooking Essentials</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <button>Gifts</button>
-                                    </td>
-                                    <td>
-                                        <button>Biscuits</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                    <table cellspacing="10px">
+                        <tr>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Gujarati" onclick="clickButton(this)">
+                                <div class="label">Gujarati</div>
+                                <button onclick="alert('Gujarati button clicked')">Click</button>
+                            </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Punjabi" onclick="clickButton(this)">
+                                <div class="label">Punjabi</div>
+                                <button onclick="alert('Punjabi button clicked')">Click</button>
+                            </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="South-Indian" onclick="clickButton(this)">
+                                <div class="label">South-Indian</div>
+                                <button onclick="alert('South-Indian button clicked')">Click</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Chinese" onclick="clickButton(this)">
+                                <div class="label">Chinese</div>
+                                <button onclick="alert('Chinese button clicked')">Click</button>
+                            </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Pizza" onclick="clickButton(this)">
+                                <div class="label">Pizza</div>
+                                <button onclick="alert('Pizza button clicked')">Click</button>
+                            </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Rajasthani" onclick="clickButton(this)">
+                                <div class="label">Rajasthani</div>
+                                <button onclick="alert('Rajasthani button clicked')">Click</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Snacks" onclick="clickButton(this)">
+                                <div class="label">Snacks</div>
+                                <button onclick="alert('Snacks button clicked')">Click</button>
+                            </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Drinks" onclick="clickButton(this)">
+                                <div class="label">Drinks</div>
+                                <button onclick="alert('Drinks button clicked')">Click</button>
+                            </td>
+                            <td>
+                                <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Desserts" onclick="clickButton(this)">
+                                <div class="label">Desserts</div>
+                                <button onclick="alert('Desserts button clicked')">Click</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><button onclick="alert('See All Food button clicked')">See All</button></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function clickButton(imgElement) {
+            // Find the next sibling button and click it
+            const button = imgElement.nextElementSibling.nextElementSibling;
+            button.click();
+        }
+    </script>
 </body>
 </html>
