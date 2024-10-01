@@ -1,13 +1,55 @@
+:root{
+    --frground: rgb(29, 75, 123);
+    --bkground:rgb(190, 213, 190);
+}
+
+@font-face {
+    font-family: 'Opendyslexic Nerd Font';
+    src: local('Opendyslexic Nerd Font'),url('/Fonts/OpenDyslexicMNerdFont-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .innertable {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 800;
-    font-size: 20px;
+    font-family:'Opendyslexic Nerd Font',monospace;
+    font-weight: 900;
+    font-size: 22px;
     text-align: center;
 
-    a:visited {
-        color: rgba(106, 255, 0, 0.321);
-    }    
+    
     td{
-        background-color: tomato;
+        
     }
+
+    a{
+        color:var(--frground);
+        /* values:horizontal offset,verticaloffset,shadowradius,color */
+        box-shadow: 5px -1px 10px rgba(197, 217, 239, 0.578);
+        display: inline-block;
+        /* space b/w text and border and value order: top,right,bottom,left */
+        padding: 5px ; 
+        border-radius: 10px;
+        /*  to remove underline */
+        text-decoration: none;
+        background-color: var(--bkground);
+    }
+
+    a:hover{
+        background-color: rgb(95, 158, 160);
+        color: white;
+    }
+}
+
+#search{
+    font-size: large;
+    font-weight: 600;
+    width: 50%;
+    height: 30px;
+    background-color: rgba(245, 245, 245, 0.905);
+}
+
+iframe{
+    margin-left: 2%;
+    margin-top: 50px;
+    border:none;
 }

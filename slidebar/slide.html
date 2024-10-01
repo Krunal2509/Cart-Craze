@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider img {
+            width: 220px;
+            height: 220px;
+            box-shadow: 10px 10px 10px black;
+            border-radius: 15px;
+        }
+
+        .slider  img:hover{
+                width: 240px;
+                height: 240px;
+        }
+
+        .slider button:hover{
+            font-size: 20PX;
+            font-weight: 500;
+        }
+
+        .slider-item {
+            display: inline-block;
+            text-align: center;
+            margin: 0 10px;
+
+        }
+
+        .item-info {
+            display: table;
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .item-info .name, .item-info .price {
+            display: table-row;
+        }
+
+        .item-info .name div, .item-info .price div {
+            display: table-cell;
+            padding: 5px;
+        }
+
+        .item-info .price .add-button {
+            padding: 5px 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            padding: 10px;
+            color: black;
+            background-color: lightgray;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev.disabled, .next.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let slideIndex = 0;
+            let clickCount = 0; // Counter for next button clicks
+            const slides = document.querySelector('.slider');
+            const totalSlides = slides.children.length;
+
+            function showSlides(n) {
+                slideIndex += n;
+
+                // Limit slideIndex to prevent looping
+                if (slideIndex < 0) {
+                    slideIndex = 0; // Stay on the first slide
+                } else if (slideIndex >= totalSlides) {
+                    slideIndex = totalSlides - 1; // Stay on the last slide
+                }
+
+                // Apply the transform to shift the slides
+                slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+                // Update button visibility and interactivity
+                updateButtons();
+            }
+
+            // Update the visibility and interactivity of the previous and next buttons
+            function updateButtons() {
+                const prevButton = document.querySelector('.prev');
+                const nextButton = document.querySelector('.next');
+
+                prevButton.style.display = slideIndex === 0 ? 'none' : 'block';
+
+                // Disable next button after three clicks
+                if (clickCount >= 1) {
+                    nextButton.classList.add('disabled');
+                    nextButton.onclick = null; // Disable click event
+                } else {
+                    nextButton.classList.remove('disabled');
+                    nextButton.onclick = function() {
+                        plusSlides(1); // Enable click event
+                    };
+                }
+            }
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(n);
+                if (n === 1) { // Increment click count only for next button
+                    clickCount++;
+                } else if (n === -1) { // Reset click count when going left
+                    clickCount = 0;
+                }
+            }
+
+            // Attach functions to buttons
+            document.querySelector('.prev').onclick = function() {
+                plusSlides(-1);
+            };
+
+            document.querySelector('.next').onclick = function() {
+                plusSlides(1);
+            };
+
+            // Initial button visibility
+            updateButtons();
+        };
+    </script>
+</head>
+<body>
+
+    <div class="slider-container">
+        <h1 style="font-family: monospace; font-weight: 900; ">Best Sellers : </h1>
+
+        <div class="slider">
+            <div class="slider-item">
+                <img src="laysblue.jpeg" alt="Image 1">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Lays Blue</div>
+                    </div>
+                    <div class="price">
+                        <div>₹20</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="kurkurechatakapataka.jpeg" alt="Image 2">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Chataka Pataka</div>
+                    </div>
+                    <div class="price">
+                        <div>₹15</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="balajimasalalasti.webp" alt="Image 3">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Balaji Masala Lasti</div>
+                    </div>
+                    <div class="price">
+                        <div>₹10</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="kurkuretomato.jpeg" alt="Image 4">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Kurkure Tomato</div>
+                    </div>
+                    <div class="price">
+                        <div>₹25</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="popringcheese.jpeg" alt="Image 5">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Pop Ring Cheese</div>
+                    </div>
+                    <div class="price">
+                        <div>₹30</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="popringmasala.jpeg" alt="Image 6">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Pop Ring Masala</div>
+                    </div>
+                    <div class="price">
+                        <div>₹35</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="wheels.jpeg" alt="Image 7">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Wheels</div>
+                    </div>
+                    <div class="price">
+                        <div>₹40</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="aloosev.jpeg" alt="Image 8">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Aloo Sev</div>
+                    </div>
+                    <div class="price">
+                        <div>₹18</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="faralichevdo.avif" alt="Image 9">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Farali Chevdo</div>
+                    </div>
+                    <div class="price">
+                        <div>₹22</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="ratlamisev.jpeg" alt="Image 10">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Ratlami Sev</div>
+                    </div>
+                    <div class="price">
+                        <div>₹28</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="solidmasti.jpeg" alt="Image 11">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Solid Masti</div>
+                    </div>
+                    <div class="price">
+                        <div>₹33</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="laysgreen.webp" alt="Image 12">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Lays Green</div>
+                    </div>
+                    <div class="price">
+                        <div>₹21</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="shingbhujia.webp" alt="Image 13">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Shing Bhujiya</div>
+                    </div>
+                    <div class="price">
+                        <div>₹19</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="moongdal.jpeg" alt="Image 14">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Moong Dal</div>
+                    </div>
+                    <div class="price">
+                        <div>₹23</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="chanadal.jpeg" alt="Image 15">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Chana Dal</div>
+                    </div>
+                    <div class="price">
+                        <div>₹24</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="chanajorgaram.webp" alt="Image 16">
+                <div class="item-info">
+                    <div class="name">
+                        <div>Chana Jor Garam</div>
+                    </div>
+                    <div class="price">
+                        <div>₹26</div>
+                        <div><button class="add-button">Add</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+
+</body>
+</html>
