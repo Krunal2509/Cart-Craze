@@ -65,6 +65,12 @@
             border-radius: 20px;
         }
 
+.groceryitems img:hover {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 20px;
+}
         .label {
             font-family: cursive;
             font-weight: 700;
@@ -97,7 +103,7 @@
                             <td>
                                 <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Vegetables" onclick="clickButton(this)">
                                 <div class="label">Vegetables</div>
-                                <button onclick="alert('Vegetables button clicked')">Click</button>
+                                <button onclick="Vegetable()">Click</button>
                             </td>
                             <td>
                                 <img src="/Cart Craze/slidebar/kurkurechatakapataka.jpeg" alt="Fruits" onclick="clickButton(this)">
@@ -220,6 +226,10 @@
             const button = imgElement.nextElementSibling.nextElementSibling;
             button.click();
         }
+        function Vegetable(){
+            window.open("/Cart Craze/variety/Veg.html", "_blank");
+        }
+
     </script>
 </body>
 </html>
